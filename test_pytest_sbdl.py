@@ -1,0 +1,17 @@
+import pytest
+from chispa import assert_df_equality
+from datetime import datetime, date
+
+from pyspark.sql.types import StructType, StructField, StringType, NullType, TimestampType, ArrayType, DateType, Row
+
+# from lib import DataLoader, Transformations
+from lib.Utils import get_spark_session
+
+@pytest.fixture(scope='session')
+def spark():
+    return get_spark_session("LOCAL")
+
+
+def test_blank_test(spark):
+    print(spark.version)
+    assert spark.version == "3.5.5"
