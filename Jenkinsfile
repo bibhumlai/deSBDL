@@ -25,7 +25,7 @@ pipeline {
 	      branch 'release'
 	   }
            steps {
-              sh "cp -r sbdl.zip log4j.properties sbdl_main.py sbdl_submit.sh conf /home/bibhu/sbdl-qa/"
+              sh "cp -r sbdl.zip log4j.properties sbdl_main.py sbdl_submit.sh conf /home/bibhumlai7/sbdl/qa/"
            }
         }
 	stage('Deploy') {
@@ -33,7 +33,7 @@ pipeline {
 	      branch 'master'
 	   }
            steps {
-               sh "cp -r sbdl.zip log4j.properties sbdl_main.py sbdl_submit.sh conf /home/bibhu/sbdl-prod"
+               sh "cp -r sbdl.zip log4j.properties sbdl_main.py sbdl_submit.sh conf /home/bibhumlai7/sbdl/prod/"
            }
         }
     }
