@@ -25,7 +25,7 @@ pipeline {
 	      branch 'release'
 	   }
            steps {
-              sh "scp -i /root/.ssh/edge-node_key.pem -o 'StrictHostKeyChecking no' -r sbdl.zip log4j.properties sbdl_main.py sbdl_submit.sh conf bibhumlai7@http://34.58.58.62:/home/bibhu/sbdl-qa"
+              sh "cp -r sbdl.zip log4j.properties sbdl_main.py sbdl_submit.sh conf /home/bibhu/sbdl-qa/"
            }
         }
 	stage('Deploy') {
@@ -33,7 +33,7 @@ pipeline {
 	      branch 'master'
 	   }
            steps {
-               sh "scp -i /root/.ssh/edge-node_key.pem -o 'StrictHostKeyChecking no' -r sbdl.zip log4j.properties sbdl_main.py sbdl_submit.sh conf bibhumlai7@http://34.58.58.62:/home/bibhu/sbdl-prod"
+               sh "cp -r sbdl.zip log4j.properties sbdl_main.py sbdl_submit.sh conf /home/bibhu/sbdl-prod"
            }
         }
     }
